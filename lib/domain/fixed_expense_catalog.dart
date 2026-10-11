@@ -1,0 +1,265 @@
+final class FixedExpenseGroup {
+  const FixedExpenseGroup(this.key, this.pl, this.en, this.icon);
+  final String key, pl, en, icon;
+  String label(String language) => language == 'en' ? en : pl;
+}
+
+final class FixedExpensePreset {
+  const FixedExpensePreset(this.key, this.group, this.pl, this.en, this.icon);
+  final String key, group, pl, en, icon;
+  String label(String language) => language == 'en' ? en : pl;
+  bool get custom => key == 'CUSTOM';
+}
+
+const fixedExpenseGroups = <FixedExpenseGroup>[
+  FixedExpenseGroup('HOUSING', 'Mieszkanie', 'Housing', 'HOME'),
+  FixedExpenseGroup('BILLS', 'Rachunki', 'Utilities', 'ELECTRICITY'),
+  FixedExpenseGroup(
+    'PHONE_INTERNET',
+    'Telefon i internet',
+    'Phone and internet',
+    'PHONE',
+  ),
+  FixedExpenseGroup('INSURANCE', 'Ubezpieczenia', 'Insurance', 'HEALTH'),
+  FixedExpenseGroup(
+    'FINANCE',
+    'Raty i opłaty finansowe',
+    'Loans and financial fees',
+    'BANK',
+  ),
+  FixedExpenseGroup('FAMILY', 'Rodzina', 'Family', 'FAMILY'),
+  FixedExpenseGroup(
+    'HEALTHCARE',
+    'Zdrowie i opieka',
+    'Health and care',
+    'MEDICINE',
+  ),
+  FixedExpenseGroup('TRANSPORT', 'Transport', 'Transport', 'TRANSPORT'),
+  FixedExpenseGroup(
+    'SUBSCRIPTIONS',
+    'Abonamenty i członkostwa',
+    'Subscriptions and memberships',
+    'TV',
+  ),
+  FixedExpenseGroup('OTHER', 'Inne', 'Other', 'SPARKLES'),
+];
+
+const fixedExpensePresets = <FixedExpensePreset>[
+  FixedExpensePreset(
+    'ADMIN_RENT',
+    'HOUSING',
+    'Czynsz administracyjny',
+    'Administrative rent',
+    'HOME',
+  ),
+  FixedExpensePreset('RENT', 'HOUSING', 'Najem', 'Rent', 'CASH'),
+  FixedExpensePreset(
+    'MORTGAGE',
+    'HOUSING',
+    'Rata kredytu hipotecznego',
+    'Mortgage payment',
+    'BANK',
+  ),
+  FixedExpensePreset(
+    'RENOVATION_FUND',
+    'HOUSING',
+    'Fundusz remontowy',
+    'Renovation fund',
+    'REPAIRS',
+  ),
+  FixedExpensePreset(
+    'GARAGE',
+    'HOUSING',
+    'Garaż lub miejsce parkingowe',
+    'Garage or parking space',
+    'TRANSPORT',
+  ),
+  FixedExpensePreset(
+    'ELECTRICITY',
+    'BILLS',
+    'Prąd',
+    'Electricity',
+    'ELECTRICITY',
+  ),
+  FixedExpensePreset('GAS', 'BILLS', 'Gaz', 'Gas', 'HEATING'),
+  FixedExpensePreset(
+    'WATER',
+    'BILLS',
+    'Woda i ścieki',
+    'Water and sewage',
+    'RECREATION',
+  ),
+  FixedExpensePreset('HEATING', 'BILLS', 'Ogrzewanie', 'Heating', 'HEATING'),
+  FixedExpensePreset(
+    'WASTE',
+    'BILLS',
+    'Wywóz śmieci',
+    'Waste collection',
+    'PACKAGES',
+  ),
+  FixedExpensePreset(
+    'MOBILE',
+    'PHONE_INTERNET',
+    'Telefon komórkowy',
+    'Mobile phone',
+    'PHONE',
+  ),
+  FixedExpensePreset(
+    'INTERNET',
+    'PHONE_INTERNET',
+    'Internet',
+    'Internet',
+    'COMPUTER',
+  ),
+  FixedExpensePreset(
+    'TELEVISION',
+    'PHONE_INTERNET',
+    'Telewizja',
+    'Television',
+    'TV',
+  ),
+  FixedExpensePreset(
+    'HOME_INSURANCE',
+    'INSURANCE',
+    'Ubezpieczenie mieszkania',
+    'Home insurance',
+    'HOME',
+  ),
+  FixedExpensePreset(
+    'CAR_INSURANCE',
+    'INSURANCE',
+    'Ubezpieczenie samochodu',
+    'Car insurance',
+    'TRANSPORT',
+  ),
+  FixedExpensePreset(
+    'LIFE_INSURANCE',
+    'INSURANCE',
+    'Ubezpieczenie na życie',
+    'Life insurance',
+    'FAMILY',
+  ),
+  FixedExpensePreset(
+    'HEALTH_INSURANCE',
+    'INSURANCE',
+    'Ubezpieczenie zdrowotne',
+    'Health insurance',
+    'HEALTH',
+  ),
+  FixedExpensePreset(
+    'CASH_LOAN',
+    'FINANCE',
+    'Kredyt gotówkowy',
+    'Personal loan',
+    'CASH',
+  ),
+  FixedExpensePreset(
+    'CAR_INSTALLMENT',
+    'FINANCE',
+    'Rata samochodu',
+    'Car payment',
+    'TRANSPORT',
+  ),
+  FixedExpensePreset(
+    'ACCOUNT_FEES',
+    'FINANCE',
+    'Opłaty za konto',
+    'Account fees',
+    'CARD',
+  ),
+  FixedExpensePreset(
+    'NURSERY',
+    'FAMILY',
+    'Przedszkole lub żłobek',
+    'Preschool or nursery',
+    'CHILDREN',
+  ),
+  FixedExpensePreset('TUITION', 'FAMILY', 'Czesne', 'Tuition', 'EDUCATION'),
+  FixedExpensePreset(
+    'CHILD_ACTIVITIES',
+    'FAMILY',
+    'Stałe zajęcia dzieci',
+    'Regular children’s activities',
+    'SPORT',
+  ),
+  FixedExpensePreset(
+    'ALIMONY',
+    'FAMILY',
+    'Alimenty',
+    'Child support',
+    'FAMILY',
+  ),
+  FixedExpensePreset(
+    'MEDICAL_PLAN',
+    'HEALTHCARE',
+    'Abonament medyczny',
+    'Medical plan',
+    'HEALTH',
+  ),
+  FixedExpensePreset(
+    'THERAPY',
+    'HEALTHCARE',
+    'Stała terapia',
+    'Regular therapy',
+    'RECREATION',
+  ),
+  FixedExpensePreset(
+    'REGULAR_MEDICINE',
+    'HEALTHCARE',
+    'Regularne leki',
+    'Regular medication',
+    'MEDICINE',
+  ),
+  FixedExpensePreset(
+    'MONTHLY_TICKET',
+    'TRANSPORT',
+    'Bilet miesięczny',
+    'Monthly travel pass',
+    'TICKET',
+  ),
+  FixedExpensePreset('LEASING', 'TRANSPORT', 'Leasing', 'Lease', 'TRANSPORT'),
+  FixedExpensePreset(
+    'PARKING',
+    'TRANSPORT',
+    'Stały parking',
+    'Regular parking',
+    'PLACES',
+  ),
+  FixedExpensePreset(
+    'STREAMING',
+    'SUBSCRIPTIONS',
+    'Serwisy streamingowe',
+    'Streaming services',
+    'FILM',
+  ),
+  FixedExpensePreset('GYM', 'SUBSCRIPTIONS', 'Siłownia', 'Gym', 'SPORT'),
+  FixedExpensePreset(
+    'APPLICATIONS',
+    'SUBSCRIPTIONS',
+    'Aplikacje',
+    'Apps',
+    'COMPUTER',
+  ),
+  FixedExpensePreset('CLEANING', 'OTHER', 'Sprzątanie', 'Cleaning', 'SPARKLES'),
+  FixedExpensePreset(
+    'PET_CARE',
+    'OTHER',
+    'Opieka nad zwierzęciem',
+    'Pet care',
+    'ANIMALS',
+  ),
+  FixedExpensePreset(
+    'DONATIONS',
+    'OTHER',
+    'Stałe darowizny',
+    'Regular donations',
+    'GIFTS',
+  ),
+  FixedExpensePreset(
+    'CUSTOM',
+    'OTHER',
+    'Własny wydatek',
+    'Custom expense',
+    'WALLET',
+  ),
+];
